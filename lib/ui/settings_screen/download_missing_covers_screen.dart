@@ -112,6 +112,9 @@ class _DownloadMissingCoversScreenState
 
     if (result == true) {
       setState(() {
+        // Keep the local object in sync with the DB so getCoverFile(), which
+        // now relies on hasCover, returns the freshly downloaded cover.
+        book.hasCover = true;
         downloadedCovers.add(book);
       });
     }

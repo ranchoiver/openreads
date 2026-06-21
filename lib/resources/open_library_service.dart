@@ -31,8 +31,12 @@ class OpenLibraryService {
     final offsetParam = '&offset=$offset';
     final limitParam = '&limit=$limit';
 
+    // Encode the query so titles/authors containing spaces or reserved
+    // characters (&, #, +, ?, ...) don't break or truncate the request.
+    final encodedQuery = Uri.encodeQueryComponent(query);
+
     final uri = Uri.parse(
-      '$baseUrl/search.json?$searchTypeParam=$query$limitParam$offsetParam$modeParam$fieldsParam',
+      '$baseUrl/search.json?$searchTypeParam=$encodedQuery$limitParam$offsetParam$modeParam$fieldsParam',
     );
 
     final response = await get(uri);

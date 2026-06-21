@@ -69,6 +69,8 @@ class ReadStats extends StatelessWidget {
                               book!.getCoverFile()!,
                               fit: BoxFit.cover,
                               width: 70,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  const SizedBox(),
                             ),
                           ),
                         )

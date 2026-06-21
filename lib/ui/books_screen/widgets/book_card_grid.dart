@@ -104,6 +104,7 @@ class BookCardGrid extends StatelessWidget {
       child: Image.file(
         file,
         fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) => const SizedBox(),
         frameBuilder: (
           BuildContext context,
           Widget child,
