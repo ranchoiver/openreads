@@ -163,6 +163,8 @@ class BookCardListCompact extends StatelessWidget {
                   width: coverWidth,
                   height: coverHeight,
                   fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) =>
+                      const SizedBox(),
                   frameBuilder: (
                     BuildContext context,
                     Widget child,

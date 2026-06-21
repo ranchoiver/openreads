@@ -20,6 +20,7 @@ class MissingCoverView extends StatelessWidget {
               coverFile!,
               fit: BoxFit.cover,
               width: (MediaQuery.of(context).size.width - 20 - 20 - 15) / 4,
+              errorBuilder: (context, error, stackTrace) => const SizedBox(),
             )
           : const SizedBox(),
     );

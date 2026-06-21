@@ -67,6 +67,8 @@ class _CoverViewState extends State<CoverView> {
                                 coverFile!,
                                 fit: BoxFit.cover,
                                 height: mediaQuery.size.height / 2.5,
+                                errorBuilder: (context, error, stackTrace) =>
+                                    const SizedBox(),
                               ),
                             )
                           : const SizedBox(),

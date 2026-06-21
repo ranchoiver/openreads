@@ -295,15 +295,15 @@ class Book {
     };
   }
 
+  // Returns the cover file based on the [hasCover] flag without touching the
+  // filesystem. This is called from widget build methods for every book card,
+  // so doing a synchronous existsSync() here caused jank while scrolling.
+  // Render the result with an Image.file errorBuilder to gracefully handle the
+  // rare case where the flag is set but the file is missing.
   File? getCoverFile() {
-    final fileExists =
-        File('${appDocumentsDirectory.path}/$id.jpg').existsSync();
+    if (!hasCover) return null;
 
-    if (fileExists) {
-      return File('${appDocumentsDirectory.path}/$id.jpg');
-    } else {
-      return null;
-    }
+    return File('${appDocumentsDirectory.path}/$id.jpg');
   }
 
   Uint8List? getCoverBytes() {
